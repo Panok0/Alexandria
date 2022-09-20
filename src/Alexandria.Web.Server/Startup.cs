@@ -34,6 +34,13 @@ public class Startup
           .MigrationsAssembly(typeof(ANpgSql).Assembly.GetName().Name)),
         _ => throw new ArgumentException($"Unsupported provider: {provider}"),
       });
+
+    services.AddSwaggerGen(swag =>
+    {
+      swag.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Alexandria API", Version = "v1", });
+
+      swag.DescribeAllParametersInCamelCase();
+    });
   }
 
   public void Configure(IApplicationBuilder app)
@@ -48,6 +55,19 @@ public class Startup
     app.UseStaticFiles();
 
     app.UseRouting();
+
+    app.UseSwagger();
+    app.UseSwaggerUI(swag =>
+    {
+      swag.SwaggerEndpoint("/swagger/v1/swagger.json", "Alexandria API v1");
+      swag.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+      swag.EnableDeepLinking();
+      swag.EnableFilter();
+      swag.EnableValidator();
+      swag.DisplayOperationId();
+      swag.DisplayRequestDuration();
+      swag.ShowExtensions();
+    });
 
     app.UseAuthorization();
 
