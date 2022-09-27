@@ -29,9 +29,9 @@ public class Startup
       options => _ = provider switch
       {
         "Sqlite" => options.UseSqlite(Configuration.GetConnectionString("Alexandria"), sqlite => sqlite
-          .MigrationsAssembly(typeof(Mpanagos.Alexandria.Data.Sqlite.Migrations.AlexandriaDbContextModelSnapshot).Assembly.GetName().Name)),
+          .MigrationsAssembly(typeof(Mpanagos.Alexandria.Data.Sqlite.Migrations.Initialmigration).Assembly.GetName().Name)),
         "PostgreSql" => options.UseNpgsql(Configuration.GetConnectionString("Alexandria"), npgsql => npgsql
-          .MigrationsAssembly(typeof(ANpgSql).Assembly.GetName().Name)),
+          .MigrationsAssembly(typeof(Mpanagos.Alexandria.Data.PostgreSql.Migrations.InitialMigration).Assembly.GetName().Name)),
         _ => throw new ArgumentException($"Unsupported provider: {provider}"),
       });
 

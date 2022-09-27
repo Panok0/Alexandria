@@ -18,10 +18,20 @@ public class AlexandriaDbContext : DbContext
 
   public DbSet<Author> Authors { get; set; }
 
+  public DbSet<Series> Series { get; set; }
+
+  public DbSet<Category> Categories { get; set; }
+
+  public DbSet<Publisher> Publishers { get; set; }
+
   public DbSet<BookAuthor> BookAuthors { get; set; }
+
+  public DbSet<BookCategory> BookCategories { get; set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
+    ArgumentNullException.ThrowIfNull(modelBuilder);
+
     base.OnModelCreating(modelBuilder);
 
     modelBuilder.Entity<BookAuthor>(entity =>
@@ -36,6 +46,18 @@ public class AlexandriaDbContext : DbContext
 
       entity.HasKey("BookId", "AuthorId");
     });
-  }
 
+    modelBuilder.Entity<BookCategory>(entity =>
+    {
+      entity.HasOne(e => e.Book)
+      .WithMany()
+      .HasForeignKey("BookId");
+
+      entity.HasOne(e => e.Category)
+      .WithMany()
+      .HasForeignKey("CategoryId");
+
+      entity.HasKey("BookId", "CategoryId");
+    });
+  }
 }

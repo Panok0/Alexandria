@@ -8,10 +8,13 @@ public class Book : Entity<long>
 
   public string Description { get; set; } = string.Empty;
 
-  public string Publisher { get; set; } = string.Empty;
+  public Publisher Publisher { get; set; } = default!;
 
-  public string Series { get; set; } = string.Empty;
+  public Series? Series { get; set; }
+
+  public int? SeriesIndex { get; set; }
 
   public string Category { get; set; } = string.Empty;
 
+  public DateTimeOffset PublishedAt { get; set; }
 }

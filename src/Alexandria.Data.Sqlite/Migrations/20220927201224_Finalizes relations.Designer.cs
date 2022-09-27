@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mpanagos.Alexandria.Data;
 
@@ -10,9 +11,10 @@ using Mpanagos.Alexandria.Data;
 namespace Mpanagos.Alexandria.Data.Sqlite.Migrations
 {
     [DbContext(typeof(AlexandriaDbContext))]
-    partial class AlexandriaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220927201224_Finalizes relations")]
+    partial class Finalizesrelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");

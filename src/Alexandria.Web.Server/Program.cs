@@ -1,5 +1,8 @@
 namespace Alexandria.Web.Server;
 
+using Mpanagos.Alexandria.Data;
+using Mpanagos.Alexandria.Data.Joins;
+using Mpanagos.Alexandria.Data.Model;
 using Mpanagos.Alexandria.Web.Server;
 
 public static class Program
@@ -9,8 +12,9 @@ public static class Program
     try
     {
       var host = CreateHostBuilder(args);
+      var app = host.Build();
 
-      await host.RunConsoleAsync();
+      await app.RunAsync();
       return 0;
     }
     catch (Exception ex)

@@ -20,7 +20,7 @@ public class BookController
   [HttpGet("")]
   public List<Book> GetBooks()
   {
-    return ctx.Books.ToList();
+    return ctx.Books.Where(x=>x.Publisher == null).ToList();
   }
 
   [HttpGet("{id}")]
@@ -36,12 +36,22 @@ public class BookController
     {
       Description = book.Description,
       Title = book.Title,
+      Publisher=book.Publisher,
+      Category=book.Category,
+      Series=book.Series,
     };
     ctx.Books.Add(b);
     ctx.SaveChanges();
 
     return b;
   }
+
+  [HttpGet("/by-series/{series}")]
+  public List<Book> BySeries(string series)
+  {
+    return ctx.Books.ToList();
+  }
+
 
   [HttpPut("{id}")]
   public Book UpdateBook(long id, Book book)
