@@ -1,11 +1,11 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31512.422
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{C78AC8C6-8CE2-4C77-9493-3E6F22D4F82B}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.md = LICENSE.md
-		.config\assets\nuget.png = .config\assets\nuget.png
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{52270E06-D3B
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4FAAB5E4-2D81-4062-90D2-6F68DF746BD2}"
-  ProjectSection(SolutionItems) = preProject
+	ProjectSection(SolutionItems) = preProject
 		tests\Directory.Build.props = tests\Directory.Build.props
 	EndProjectSection
 EndProject
@@ -38,8 +38,61 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{9590
 		samples\Directory.Build.props = samples\Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexandria.Data", "src\Alexandria.Data\Alexandria.Data.csproj", "{3EBABED1-33A6-406F-A024-BFB1E0F72CDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexandria.Data.Sqlite", "src\Alexandria.Data.Sqlite\Alexandria.Data.Sqlite.csproj", "{6829A637-06A2-43EC-99F6-7FE174075A49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexandria.Data.PostgreSql", "src\Alexandria.Data.PostgreSql\Alexandria.Data.PostgreSql.csproj", "{6B200C36-97D0-4662-AAD9-7B58AC26004E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexandria.Console", "samples\Alexandria.Console\Alexandria.Console.csproj", "{079E224F-DC88-4D1B-AD8A-BE3DA7810884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexandria.Web.Server", "src\Alexandria.Web.Server\Alexandria.Web.Server.csproj", "{EFAF9BF8-CEEC-4C54-955F-10B4EFACA5DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexandria.Web.Common", "src\Alexandria.Web.Common\Alexandria.Web.Common.csproj", "{6DF7E7B5-26AA-425B-9C19-FE561A8CE27E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EBABED1-33A6-406F-A024-BFB1E0F72CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EBABED1-33A6-406F-A024-BFB1E0F72CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EBABED1-33A6-406F-A024-BFB1E0F72CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EBABED1-33A6-406F-A024-BFB1E0F72CDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6829A637-06A2-43EC-99F6-7FE174075A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6829A637-06A2-43EC-99F6-7FE174075A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6829A637-06A2-43EC-99F6-7FE174075A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6829A637-06A2-43EC-99F6-7FE174075A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B200C36-97D0-4662-AAD9-7B58AC26004E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B200C36-97D0-4662-AAD9-7B58AC26004E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B200C36-97D0-4662-AAD9-7B58AC26004E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B200C36-97D0-4662-AAD9-7B58AC26004E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{079E224F-DC88-4D1B-AD8A-BE3DA7810884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{079E224F-DC88-4D1B-AD8A-BE3DA7810884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{079E224F-DC88-4D1B-AD8A-BE3DA7810884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{079E224F-DC88-4D1B-AD8A-BE3DA7810884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFAF9BF8-CEEC-4C54-955F-10B4EFACA5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFAF9BF8-CEEC-4C54-955F-10B4EFACA5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFAF9BF8-CEEC-4C54-955F-10B4EFACA5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFAF9BF8-CEEC-4C54-955F-10B4EFACA5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF7E7B5-26AA-425B-9C19-FE561A8CE27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF7E7B5-26AA-425B-9C19-FE561A8CE27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF7E7B5-26AA-425B-9C19-FE561A8CE27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF7E7B5-26AA-425B-9C19-FE561A8CE27E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3EBABED1-33A6-406F-A024-BFB1E0F72CDE} = {52270E06-D3BB-4B8E-A261-377E460B5FD5}
+		{6829A637-06A2-43EC-99F6-7FE174075A49} = {52270E06-D3BB-4B8E-A261-377E460B5FD5}
+		{6B200C36-97D0-4662-AAD9-7B58AC26004E} = {52270E06-D3BB-4B8E-A261-377E460B5FD5}
+		{079E224F-DC88-4D1B-AD8A-BE3DA7810884} = {95906F8E-04C3-49F0-96D5-D6B78A8FF9C9}
+		{EFAF9BF8-CEEC-4C54-955F-10B4EFACA5DC} = {52270E06-D3BB-4B8E-A261-377E460B5FD5}
+		{6DF7E7B5-26AA-425B-9C19-FE561A8CE27E} = {52270E06-D3BB-4B8E-A261-377E460B5FD5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59CEAD1E-0D9C-4280-9960-9CE3F7FEFBC5}
 	EndGlobalSection
 EndGlobal
